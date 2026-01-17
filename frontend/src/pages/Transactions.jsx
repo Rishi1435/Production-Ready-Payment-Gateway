@@ -94,7 +94,7 @@ function Transactions() {
       )}
 
       <div className="card" style={{ padding: '0', overflowX: 'auto' }}>
-        <table data-test-id="transactions-table" style={{ width: '100%', borderCollapse: 'collapse', minWidth: '600px' }}>
+        <table data-testid="transactions-table" style={{ width: '100%', borderCollapse: 'collapse', minWidth: '600px' }}>
           <thead>
             <tr style={{ borderBottom: '1px solid #eee', background: '#f9fafb' }}>
               <th style={{ padding: '12px', textAlign: 'left', fontSize: '12px', color: '#666' }}>ID</th>
@@ -108,25 +108,25 @@ function Transactions() {
           </thead>
           <tbody>
             {transactions.map(t => (
-              <tr key={t.id} data-test-id="transaction-row" data-payment-id={t.id} style={{ borderBottom: '1px solid #eee' }}>
-                <td data-test-id="payment-id" style={{ padding: '12px', fontFamily: 'monospace', fontSize: '13px', maxWidth: '100px', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }} title={t.id}>
+              <tr key={t.id} data-testid="transaction-row" data-payment-id={t.id} style={{ borderBottom: '1px solid #eee' }}>
+                <td data-testid="payment-id" style={{ padding: '12px', fontFamily: 'monospace', fontSize: '13px', maxWidth: '100px', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }} title={t.id}>
                   {t.id}
                 </td>
-                <td data-test-id="order-id" style={{ padding: '12px', fontFamily: 'monospace', fontSize: '13px', maxWidth: '100px', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }} title={t.order_id}>
+                <td data-testid="order-id" style={{ padding: '12px', fontFamily: 'monospace', fontSize: '13px', maxWidth: '100px', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }} title={t.order_id}>
                   {t.order_id}
                 </td>
-                <td data-test-id="amount" style={{ padding: '12px', fontWeight: '500' }}>₹{(t.amount / 100).toFixed(2)}</td>
-                <td data-test-id="method" style={{ padding: '12px', textTransform: 'capitalize' }}>{t.method}</td>
+                <td data-testid="amount" style={{ padding: '12px', fontWeight: '500' }}>₹{(t.amount / 100).toFixed(2)}</td>
+                <td data-testid="method" style={{ padding: '12px', textTransform: 'capitalize' }}>{t.method}</td>
                 <td style={{ padding: '12px' }}>
                   <span
-                    data-test-id="status"
+                    data-testid="status"
                     className={`status-badge status-${t.status}`}
                     style={{ fontSize: '11px', padding: '2px 6px' }}
                   >
                     {t.status}
                   </span>
                 </td>
-                <td data-test-id="created-at" style={{ padding: '12px', fontSize: '13px', color: '#555' }}>
+                <td data-testid="created-at" style={{ padding: '12px', fontSize: '13px', color: '#555' }}>
                   {new Date(t.created_at).toLocaleDateString()}
                 </td>
                 <td style={{ padding: '12px' }}>

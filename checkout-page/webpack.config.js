@@ -5,6 +5,10 @@ module.exports = {
     output: {
         filename: 'checkout.js',
         path: path.resolve(__dirname, 'public'),
+        library: 'PaymentGateway',
+        libraryTarget: 'umd',
+        globalObject: 'this',
+        libraryExport: 'default'
     },
     mode: 'production',
 };

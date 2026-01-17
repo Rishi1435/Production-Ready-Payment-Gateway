@@ -75,7 +75,7 @@ function Dashboard() {
   if (!merchant) return <div className="container">Loading dashboard...</div>;
 
   return (
-    <div className="container" data-test-id="dashboard">
+    <div className="container" data-testid="dashboard">
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '30px' }}>
         <h1>Overview</h1>
         <Link to="/dashboard/transactions" style={{ color: '#635bff', textDecoration: 'none', fontWeight: 'bold' }}>
@@ -84,17 +84,17 @@ function Dashboard() {
       </div>
 
       {/* API Credentials Card */}
-      <div className="card" data-test-id="api-credentials">
+      <div className="card" data-testid="api-credentials">
         <h3>API Credentials</h3>
         <div style={{ marginBottom: '15px' }}>
           <label style={{ display: 'block', color: '#8898aa', fontSize: '12px', marginBottom: '5px' }}>PUBLIC KEY</label>
-          <code data-test-id="api-key" style={{ background: '#f6f9fc', padding: '8px', borderRadius: '4px', fontFamily: 'monospace', display: 'block' }}>
+          <code data-testid="api-key" style={{ background: '#f6f9fc', padding: '8px', borderRadius: '4px', fontFamily: 'monospace', display: 'block' }}>
             {merchant.api_key}
           </code>
         </div>
         <div>
           <label style={{ display: 'block', color: '#8898aa', fontSize: '12px', marginBottom: '5px' }}>SECRET KEY</label>
-          <code data-test-id="api-secret" style={{ background: '#f6f9fc', padding: '8px', borderRadius: '4px', fontFamily: 'monospace', display: 'block' }}>
+          <code data-testid="api-secret" style={{ background: '#f6f9fc', padding: '8px', borderRadius: '4px', fontFamily: 'monospace', display: 'block' }}>
             secret_test_xyz789
           </code>
         </div>
@@ -149,18 +149,18 @@ function Dashboard() {
       {/* Stats Grid - NOW USING REAL DATA */}
       <div className="card">
         <h3>Performance</h3>
-        <div className="stats-grid" data-test-id="stats-container">
+        <div className="stats-grid" data-testid="stats-container">
           <div className="stat-box">
             <div className="label">Total Transactions</div>
-            <div className="stat-value" data-test-id="total-transactions">{stats.count}</div>
+            <div className="stat-value" data-testid="total-transactions">{stats.count}</div>
           </div>
           <div className="stat-box">
             <div className="label">Total Volume</div>
-            <div className="stat-value" data-test-id="total-amount">₹{(stats.volume / 100).toFixed(2)}</div>
+            <div className="stat-value" data-testid="total-amount">₹{(stats.volume / 100).toFixed(2)}</div>
           </div>
           <div className="stat-box">
             <div className="label">Success Rate</div>
-            <div className="stat-value" data-test-id="success-rate">{stats.successRate}%</div>
+            <div className="stat-value" data-testid="success-rate">{stats.successRate}%</div>
           </div>
         </div>
       </div>

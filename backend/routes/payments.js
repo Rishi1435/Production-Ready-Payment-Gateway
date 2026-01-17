@@ -51,7 +51,7 @@ router.post('/', async (req, res) => {
         // A. IDEMPOTENCY CHECK
         if (idempotencyKey) {
             const cached = await pool.query(
-                'SELECT response FROM idempotency_keys WHERE key = $1 AND merchant_id = $2',
+                'SELECT response FROM idempotency_keys WHERE key = $1 AND merchant_id = $2 AND expires_at > NOW()',
                 [idempotencyKey, req.merchant.id]
             );
 
@@ -148,7 +148,7 @@ router.post('/:id/refunds', async (req, res) => {
         // B. Validate Status (Must be 'success' or 'partially_refunded')
         if (payment.status !== 'success' && payment.status !== 'partially_refunded') {
             return res.status(400).json({
-                error: { code: "BAD_REQUEST_ERROR", description: "Payment not in capturable state" }
+                error: { code: "BAD_REQUEST_ERROR", description: "Payment not in refundable state" }
             });
         }
 

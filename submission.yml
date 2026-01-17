@@ -6,7 +6,7 @@ setup:
 start:
   - command: "docker-compose up -d"
 
-tests: []
+test: []
 
 verify:
   - command: "curl -f http://localhost:8000/health"

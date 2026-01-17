@@ -228,10 +228,11 @@ webhookQueue.process(async (job) => {
     if (logCheck.rows.length === 0) return; // Should not happen
     let currentAttempts = logCheck.rows[0].attempts;
 
-    const signature = generateSignature(payload, merchant.webhook_secret);
+    const payloadString = JSON.stringify(payload);
+    const signature = crypto.createHmac('sha256', merchant.webhook_secret).update(payloadString).digest('hex');
 
     try {
-        const response = await axios.post(merchant.webhook_url, payload, {
+        const response = await axios.post(merchant.webhook_url, payloadString, {
             headers: {
                 'Content-Type': 'application/json',
                 'X-Webhook-Signature': signature

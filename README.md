@@ -33,6 +33,17 @@ A robust, asynchronous payment gateway with job queues, webhook delivery, and an
     - Dashboard: `http://localhost:3000`
     - API Health: `http://localhost:8000/health`
 
+## Environment Configurations
+
+The application supports the following environment variables (typically set in docker-compose or .env):
+
+- \`DATABASE_URL\`: Connection string for PostgreSQL.
+- \`REDIS_URL\`: Connection string for Redis.
+- \`TEST_MODE\`: (true/false) Enable test mode processing logic.
+- \`TEST_PROCESSING_DELAY\`: Override default delay for payment processing in ms.
+- \`TEST_PAYMENT_SUCCESS\`: (true/false) Force payment outcomes in test mode.
+- \`WEBHOOK_RETRY_INTERVALS_TEST\`: (true/false) Use accelerated timings for webhook retries.
+
 ## API Documentation
 
 ### Payments

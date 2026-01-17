@@ -15,7 +15,7 @@ class PaymentGateway {
         // Create Modal
         const modal = document.createElement('div');
         modal.id = this.modalId;
-        modal.dataset.testId = 'payment-modal';
+        modal.setAttribute('data-testid', 'payment-modal');
         Object.assign(modal.style, {
             position: 'fixed',
             top: '0',
@@ -45,7 +45,7 @@ class PaymentGateway {
         // Close Button
         const closeBtn = document.createElement('button');
         closeBtn.innerText = '×';
-        closeBtn.dataset.testId = 'close-modal-button';
+        closeBtn.setAttribute('data-testid', 'close-modal-button');
         closeBtn.className = 'close-button';
         Object.assign(closeBtn.style, {
             position: 'absolute',
@@ -62,7 +62,7 @@ class PaymentGateway {
 
         // Iframe
         const iframe = document.createElement('iframe');
-        iframe.dataset.testId = 'payment-iframe';
+        iframe.setAttribute('data-testid', 'payment-iframe');
 
         // Construct URL
         // Assumption: The checkout page is served from the same origin as this script (localhost:3001)

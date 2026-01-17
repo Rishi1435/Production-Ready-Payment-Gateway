@@ -54,20 +54,20 @@ function Webhooks() {
   };
 
   return (
-    <div style={{ padding: '20px' }} data-test-id="webhook-config">
+    <div style={{ padding: '20px' }} data-testid="webhook-config-form">
       <h2>Webhook Configuration</h2>
 
       <div className="card" style={{ marginBottom: '30px', padding: '20px', background: 'white', borderRadius: '8px' }}>
         <div style={{ marginBottom: '15px' }}>
           <label style={{ display: 'block', fontWeight: 'bold' }}>Webhook URL</label>
-          <input data-test-id="webhook-url-input" value={url} onChange={e => setUrl(e.target.value)} style={{ width: '100%', padding: '8px' }} />
+          <input data-testid="webhook-url-input" value={url} onChange={e => setUrl(e.target.value)} style={{ width: '100%', padding: '8px' }} />
         </div>
         <div>
           <label style={{ display: 'block', fontWeight: 'bold' }}>Webhook Secret</label>
-          <code data-test-id="webhook-secret" style={{ background: '#eee', padding: '4px' }}>{secret}</code>
+          <code data-testid="webhook-secret" style={{ background: '#eee', padding: '4px' }}>{secret}</code>
         </div>
         <button
-          data-test-id="save-webhook-button"
+          data-testid="save-webhook-button"
           onClick={handleSave}
           style={{ marginTop: '15px', padding: '8px 16px', background: '#635bff', color: 'white', border: 'none', borderRadius: '4px', cursor: 'pointer' }}>
           Save Configuration
@@ -75,7 +75,7 @@ function Webhooks() {
       </div>
 
       <h3>Webhook Logs</h3>
-      <table data-test-id="webhook-logs-table" style={{ width: '100%', borderCollapse: 'collapse', background: 'white' }}>
+      <table data-testid="webhook-logs-table" style={{ width: '100%', borderCollapse: 'collapse', background: 'white' }}>
         <thead>
           <tr style={{ textAlign: 'left', borderBottom: '1px solid #ddd' }}>
             <th style={{ padding: '10px' }}>Event</th>
@@ -88,17 +88,17 @@ function Webhooks() {
         </thead>
         <tbody>
           {logs.map(log => (
-            <tr key={log.id} data-test-id="webhook-log-item" style={{ borderBottom: '1px solid #eee' }}>
-              <td data-test-id="webhook-event" style={{ padding: '10px' }}>{log.event}</td>
-              <td data-test-id="webhook-status" style={{ color: log.status === 'success' ? 'green' : 'orange' }}>
+            <tr key={log.id} data-testid="webhook-log-item" style={{ borderBottom: '1px solid #eee' }}>
+              <td data-testid="webhook-event" style={{ padding: '10px' }}>{log.event}</td>
+              <td data-testid="webhook-status" style={{ color: log.status === 'success' ? 'green' : 'orange' }}>
                 {log.status}
               </td>
-              <td data-test-id="webhook-attempts">{log.attempts}</td>
-              <td data-test-id="webhook-last-attempt">{new Date(log.created_at).toLocaleTimeString()}</td>
-              <td data-test-id="webhook-response-code">{log.response_code || '-'}</td>
+              <td data-testid="webhook-attempts">{log.attempts}</td>
+              <td data-testid="webhook-last-attempt">{new Date(log.created_at).toLocaleTimeString()}</td>
+              <td data-testid="webhook-response-code">{log.response_code || '-'}</td>
               <td>
                 <button
-                  data-test-id="retry-webhook-button"
+                  data-testid="retry-webhook-button"
                   onClick={() => handleRetry(log.id)}
                   style={{ cursor: 'pointer', color: '#635bff', background: 'none', border: 'none', fontWeight: 'bold' }}
                 >

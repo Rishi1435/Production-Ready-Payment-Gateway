@@ -1,0 +1,19 @@
+setup:
+  - command: "npm install"
+  - command: "docker-compose down -v"
+  - command: "docker-compose build"
+
+start:
+  - command: "docker-compose up -d"
+
+tests: []
+
+verify:
+  - command: "curl -f http://localhost:8000/health"
+  - command: "curl -f http://localhost:3000"
+  - command: "curl -f http://localhost:8000/api/v1/test/jobs/status"
+  - command: "node verify_async.js"
+  - command: "node verify_refund_status.js"
+
+shutdown:
+  - command: "docker-compose down"

@@ -17,9 +17,16 @@ function Webhooks() {
 
   useEffect(() => {
     fetchLogs();
-    // In a real app, we would fetch the secret/url from GET /merchants/me
-    setSecret('whsec_test_abc123');
+    fetchConfig();
   }, []);
+
+  const fetchConfig = async () => {
+    try {
+      const res = await api.get('/merchants/me');
+      if (res.data.webhook_url) setUrl(res.data.webhook_url);
+      if (res.data.webhook_secret) setSecret(res.data.webhook_secret);
+    } catch (err) { console.error("Failed to fetch config", err); }
+  };
 
   const fetchLogs = async () => {
     try {
